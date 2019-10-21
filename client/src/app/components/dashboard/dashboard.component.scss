@@ -1,0 +1,40 @@
+#dashboard {
+
+  margin: 46px auto 60px auto;
+
+  .header {
+    h1 {
+      font-size: 24px;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+  }
+
+  .body {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+
+    .table {
+      font-size: 16px;
+      font-weight: 300;
+      padding: 13px 18px;
+      border-bottom: 1px solid #eee;
+      background-color: #fff;
+      border-radius: 4px;
+      -webkit-box-shadow: 0 0 1px 1px rgba(0,0,0,.07), 0 1px 2px 0 rgba(0,0,0,.25);
+      box-shadow: 0 0 1px 1px rgba(0,0,0,.07), 0 1px 2px 0 rgba(0,0,0,.25);
+
+      th {
+        color: rgba(0,0,0,.8);
+        border-bottom: unset;
+        font-weight: 300;
+        line-height: 1.35;
+      }
+
+      td {
+        color: rgba(0,0,0,.45);
+      }
+    }
+  }
+}
