@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: proxy-service
+  redis:
+    host: redis
+
+server:
+  port: 8080
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+zuul:
+  decodeUrl: false
+  routes:
+    api:
+      path: /**
+      url: https://api.mercadolibre.com/
+  ratelimit:
+    enabled: true
+    repository: REDIS
+    policy-list:
+      api:
+        - limit: 50000
+          refresh-interval: 10
+          type:
+            - url
+        - limit: 50
+          refresh-interval: 10
+          type:
+            - origin
+        - limit: 10
+          refresh-interval: 60
+          type:
+            - origin
+            - url
