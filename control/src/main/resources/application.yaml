@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: control-service
+  data:
+    mongodb:
+      host: mongo
+
+server:
+  port: 8081
