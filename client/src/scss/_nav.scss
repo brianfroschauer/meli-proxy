@@ -1,0 +1,51 @@
+.nav-tabs {
+
+  margin-top: 10px;
+  margin-bottom: 33px;
+  height: 60px;
+  border-bottom: 1px solid rgba(0,0,0,.25);
+
+  :hover {
+    color: #3483fa;
+    border: unset;
+  }
+
+  .nav-item {
+
+    height: 100%;
+
+    .nav-link {
+
+      height: 100%;
+      min-width: 160px;
+      align-items: center;
+      border: unset;
+      display: flex;
+      justify-content: center;
+
+      :hover {
+        color: #3483fa;
+      }
+    }
+
+    .active {
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+      border-bottom: 2px solid #3483fa;
+      background-color: unset;
+      font-weight: 900;
+    }
+  }
+
+  a {
+    color: unset;
+  }
+}
+
+.nav-tabs.nav-link {
+
+  :hover {
+    border: unset;
+  }
+}
