@@ -26,7 +26,7 @@ Open statistics dashboard at http://localhost:4200
 
 ## Solution diagram
 
-// TODO add diagram
+![alt text](assets/diagram.png)
 
 ## Built With
 
