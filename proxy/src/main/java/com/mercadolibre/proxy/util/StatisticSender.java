@@ -39,7 +39,7 @@ public class StatisticSender {
                 statisticService.getDuration(),
                 new Date()
         );
-        restTemplate.postForEntity("http://localhost:8081/statistics", statistic, StatisticDTO.class);
+        restTemplate.postForEntity("http://control-service:8081/statistics", statistic, StatisticDTO.class);
         statisticService.reset();
     }
 }
