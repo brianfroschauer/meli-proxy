@@ -29,7 +29,7 @@ public class StatisticSender {
         this.restTemplate = new RestTemplate();
     }
 
-    @Scheduled(fixedDelay = 1800000)
+    @Scheduled(fixedDelay = 3600000)
     public void sendDailyStatistics() {
         final StatisticDTO statistic = new StatisticDTO(
                 statisticService.getTotal(),
@@ -39,7 +39,7 @@ public class StatisticSender {
                 statisticService.getDuration(),
                 new Date()
         );
-        restTemplate.postForEntity("http://control-service:8081/statistics", statistic, StatisticDTO.class);
+        restTemplate.postForEntity("http://localhost:8081/statistics", statistic, StatisticDTO.class);
         statisticService.reset();
     }
 }
