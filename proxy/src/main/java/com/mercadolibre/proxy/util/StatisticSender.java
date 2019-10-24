@@ -1,5 +1,6 @@
 package com.mercadolibre.proxy.util;
 
+import com.mercadolibre.proxy.client.StatisticServiceClient;
 import com.mercadolibre.proxy.dto.StatisticDTO;
 import com.mercadolibre.proxy.service.StatisticService;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +8,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 
@@ -21,12 +21,13 @@ import java.util.Date;
 @EnableScheduling
 public class StatisticSender {
 
+    private final StatisticServiceClient statisticClient;
     private final StatisticService statisticService;
-    private final RestTemplate restTemplate;
 
-    public StatisticSender(StatisticService statisticService) {
+    public StatisticSender(StatisticServiceClient statisticClient,
+                           StatisticService statisticService) {
+        this.statisticClient = statisticClient;
         this.statisticService = statisticService;
-        this.restTemplate = new RestTemplate();
     }
 
     @Scheduled(fixedDelay = 3600000)
@@ -39,7 +40,7 @@ public class StatisticSender {
                 statisticService.getDuration(),
                 new Date()
         );
-        restTemplate.postForEntity("http://control-service:8081/statistics", statistic, StatisticDTO.class);
+        statisticClient.create(statistic);
         statisticService.reset();
     }
 }
