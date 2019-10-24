@@ -30,4 +30,3 @@ zuul:
           refresh-interval: 2
           type:
             - origin
-  strip-prefix: true

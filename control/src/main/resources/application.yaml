@@ -1,9 +1,15 @@
 spring:
   application:
     name: control-service
-  data:
-    mongodb:
-      host: mongo
 
 server:
   port: 8081
+---
+spring:
+  profiles: local
+---
+spring:
+  profiles: development
+  data:
+    mongodb:
+      host: mongo

@@ -1,19 +1,12 @@
 spring:
   application:
     name: proxy-service
-  redis:
-    host: redis
+---
+spring:
+  profiles: local, development
 
 server:
   port: 8080
-
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        loggerLevel: basic
 
 zuul:
   decodeUrl: false
@@ -39,3 +32,23 @@ zuul:
           type:
             - origin
             - url
+---
+spring:
+  profiles: local
+
+control-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:8081
+---
+spring:
+  profiles: development
+  redis:
+    host: redis
+
+control-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: control-service:8081

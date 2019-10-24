@@ -12,6 +12,7 @@ services:
     depends_on:
       - redis
       - control-service
+    command: --spring.profiles.active=development
     networks:
       - spring
 
@@ -24,6 +25,7 @@ services:
     restart: always
     depends_on:
       - mongo
+    command: --spring.profiles.active=development
     networks:
       - spring
 
