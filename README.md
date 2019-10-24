@@ -12,6 +12,8 @@ https://www.docker.com/get-started
 
 ### Usage
 
+#### Development Profile
+
 Run in the command line:
 ```
 docker-compose up
@@ -23,6 +25,31 @@ curl http://localhost:8080/categories/MLA5725
 ```
 
 Open statistics dashboard at http://localhost:4200
+
+#### Local Profile
+
+Run in the command line:
+```
+mvn spring-boot:run -Dspring.profiles.active="local"
+```
+
+Test the proxy:
+```
+curl http://localhost:8080/categories/MLA5725
+```
+
+Open statistics dashboard at http://localhost:4200
+
+### Tests
+
+#### Local profile
+
+(It is necessary to have MongoDB and Redis running)
+
+Run in the command line:
+```
+mvn '-Dtest=ProxyApplicationTests' test
+```
 
 ## Solution diagram
 
