@@ -55,6 +55,15 @@ mvn '-Dtest=ProxyApplicationTests' test
 
 ![alt text](assets/diagram.png)
 
+## Solution views
+
+### Dashboard tab
+![alt text](assets/dashboard.png)
+
+### History tab
+![alt text](assets/history.png)
+
+
 ## Built With
 
 * [Spring Boot](https://spring.io/) - The backend framework used
